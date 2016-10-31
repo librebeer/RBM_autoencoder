@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="sigma.min.js"></script>
+	<!-- END SIGMA IMPORTS -->
+	<style>
+    #graph-container {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+    }
+  </style>
+	<script src="synaptic.js"></script>
+</head>
+<body>
+		<div id="container">
+  
+  <div id="graph-container"></div>
+</div>
+
+
+</body>
+<script type="text/javascript">
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////SIGMA.JS///////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+/**
+ * This is a basic example on how to instantiate sigma. A random graph is
+ * generated and stored in the "graph" variable, and then sigma is instantiated
+ * directly with the graph.
+ *
+ * The simple instance of sigma is enough to make it render the graph on the on
+ * the screen, since the graph is given directly to the constructor.
+ */
+var i,
+    s,
+    N = 2,
+    H = 1,
+    O = 2,
+    E = 4,
+    g = {
+      nodes: [],
+      edges: []
+    };
+
+// input
+for (i = 0; i < N; i++)
+  g.nodes.push({
+    id: 'n' + i,
+    label: 'N ' + i,
+    x: 0,
+    y: i*5,
+    size: 10,
+    color: '#666'
+  });
+
+//hidden
+for (j = 0; j < H; j++)
+  g.nodes.push({
+    id: 'h' + j,
+    label: 'H ' + j,
+    x: 100,
+    y: (j*5),
+    size: 10,
+    color: '#666'
+  });
+
+//output
+for (k = 0; k < N; k++)
+  g.nodes.push({
+    id: 'o' + k,
+    label: 'O ' + k,
+    x: 200,
+    y: k*5,
+    size: 10,
+    color: '#666'
+  });
+
+//input - hidden edges
+var id= 0;
+for (i = 0; i < N; i++){
+	for (var j = 0; j < H; j++) {
+  g.edges.push({
+    id: 'e'+id,
+    source: 'n' + i,
+    target: 'h' + j,
+    size: 2,
+    color: '#ccc'
+  });
+  id++;
+}
+}
+//hidden - output edges
+for (i = 0; i < H; i++){
+	for (var j = 0; j < N; j++) {
+  g.edges.push({
+    id: 'e'+id,
+    source: 'h' + i,
+    target: 'o' + j,
+    size: 2,
+    color: '#ccc'
+  });
+  id++;
+}
+}
+
+console.log(g);
+// Instantiate sigma:
+s = new sigma({
+  graph: g,
+  container: 'graph-container'
+});
+
+//console.log(s.graph.edges());
+//s.graph.edges()[0].color = '#000';
+//console.log(s.graph.edges()[0].color);
+   // Same as in the previous event:
+
+
+
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+
+</script>
+
+
+</html>
