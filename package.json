@@ -1,0 +1,24 @@
+{
+  "name": "rbm_autoencoder",
+  "version": "1.0.0",
+  "description": "Restricted Boltzmann machine for javascript using synaptic.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/librebeer/RBM_autoencoder.git"
+  },
+  "keywords": [
+    "RBM",
+    "machine",
+    "learning"
+  ],
+  "author": "librebeer",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/librebeer/RBM_autoencoder/issues"
+  },
+  "homepage": "https://github.com/librebeer/RBM_autoencoder#readme"
+}

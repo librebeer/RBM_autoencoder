@@ -11,3 +11,7 @@ To do this, it must find weights on the connections so that, relative to other p
 
 ##Other purposes. 
 RBMs are shallow, two-layer neural nets that constitute the building blocks of deep-belief networks. 
+
+## Licensing
+
+The source code is licensed under GPL v3. License is aviable [here](./LICENSE).
